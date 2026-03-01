@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tahoe Tempe Production</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: sans-serif;
+    }
+
+    .nav-link {
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0%;
+      height: 2px;
+      background-color: #facc15;
+      transition: width 0.3s;
+    }
+
+    .nav-link.active {
+      color: #facc15;
+      font-weight: 600;
+    }
+
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* Loading Screen Styles */
+    #loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    }
+
+    #loading-screen.fade-out {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loading-logo {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 2rem;
+      animation: pulse 2s infinite;
+    }
+
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid #333;
+      border-top: 4px solid #facc15;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    .loading-text {
+      margin-top: 1rem;
+      color: #facc15;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <img 
+      src="./asset/Logo Tahoe Tempe.png" 
+      alt="Tahoe Tempe Production" 
+      class="loading-logo"
+      onerror="this.src='https://via.placeholder.com/120x120?text=LOGO'"
+    >
+    <div class="loading-spinner"></div>
+    <div class="loading-text">Loading...</div>
+  </div>
+
+  <!-- Navigation Header -->
+  <nav class="bg-gray-900/80 backdrop-blur-md py-4 px-6 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <!-- Logo dengan Gambar -->
+      <a href="index.html" class="flex items-center space-x-3">
+        <img 
+          src="./asset/Logo Tahoe Tempe.png" 
+          alt="Tahoe Tempe Production" 
+          class="w-10 h-10 object-contain"
+          onerror="this.style.display='none'"
+        >
+        <span class="text-white text-xl font-bold">Tahoe Tempe Production</span>
+      </a>
+      
+      <!-- Back to Home Button -->
+      <a href="index.html" 
+         class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-full font-semibold transition-colors duration-300 flex items-center">
+        <span class="mr-2">←</span>
+        Kembali ke Home
+      </a>
+    </div>
+  </nav>
+
+<!-- Film Portfolio Section -->
+<section class="py-20 bg-gray-900 px-6">
+  <h2 class="text-3xl md:text-5xl font-bold text-center mb-8">Karya Kami</h2>
+
+  <!-- Search Bar -->
+  <div class="max-w-md mx-auto mb-12">
+    <input id="search-bar" type="text" placeholder="Cari film berdasarkan judul atau deskripsi..."
+           class="w-full px-4 py-3 rounded-full text-gray-900 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+  </div>
+
+  <div id="film-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    <!-- data akan di-inject -->
+  </div>
+</section>
+
+<footer class="bg-gray-900 text-gray-300 py-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+    <!-- Logo & About -->
+    <div class="flex flex-col items-start">
+      <a href="#" class="flex items-center mb-4">
+        <img
+          src="./asset/Logo Tahoe Tempe.png"
+          alt="Tahoe Tempe Production"
+          class="w-12 h-12 mr-3"
+        />
+        <span class="text-white text-xl font-bold">Tahoe Tempe Production</span>
+      </a>
+      <p class="text-gray-400 text-sm leading-relaxed">
+        Rumah produksi independen yang berfokus pada karya sinematik dengan
+        jiwa narasi. Menceritakan cerita yang layak didengar dan dirasakan.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div>
+      <h4 class="text-white text-lg font-semibold mb-4">Quick Links</h4>
+      <ul class="space-y-2">
+        <li>
+          <a href="./index.html#about" class="hover:text-red-600 transition-colors">About</a>
+        </li>
+        <li>
+          <a href="./index.html#Portfolio" class="hover:text-red-600 transition-colors">Portfolio</a>
+        </li>
+        <li>
+          <a href="./index.html#contact" class="hover:text-red-600 transition-colors">Contact</a>
+        </li>
+        <li>
+          <a href="./all_film.html" class="hover:text-red-600 transition-colors">All Films</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div>
+      <h4 class="text-white text-lg font-semibold mb-4">Contact</h4>
+      <p class="text-gray-400 text-sm">
+        Email:
+        <a href="mailto:tahoetempeproduction@gmail.com" class="hover:text-red-600">tahoetempeproduction@gmail.com</a>
+      </p>
+      <p class="text-gray-400 text-sm">
+        Instagram:
+        <a href="https://instagram.com/tahoetempeproduction" target="_blank" class="hover:text-red-600">@tahoetempeproduction</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="mt-10 text-center text-gray-500 text-xs">
+    &copy; 2025 Tahoe Tempe Production. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  // Loading Screen Functionality
+  const loadingScreen = document.getElementById('loading-screen');
+
+  function hideLoadingScreen() {
+    loadingScreen.classList.add('fade-out');
+    // Remove from DOM after animation
+    setTimeout(() => {
+      loadingScreen.remove();
+    }, 500);
+  }
+
+  // Show loading screen initially
+  document.addEventListener('DOMContentLoaded', function() {
+    // Hide loading screen after page is fully loaded
+    window.addEventListener('load', function() {
+      // Add a small delay for better UX
+      setTimeout(hideLoadingScreen, 1000);
+    });
+
+    // Fallback: hide loading screen after 3 seconds max
+    setTimeout(hideLoadingScreen, 3000);
+  });
+
+  const sheetURL = "https://docs.google.com/spreadsheets/d/1HAZ5AjeVIygJwMQbIjmoqcY421aPqwOu0JlW_shdRI4/gviz/tq?tqx=out:json";
+  let allFilms = [];
+
+  function toRawGithub(url) {
+    if (!url) return "";
+    if (url.includes("github.com") && url.includes("/blob/")) {
+      return url.replace("/blob/", "/raw/") + "?raw=true";
+    }
+    return url;
+  }
+
+  function formatDate(cell) {
+    if (!cell || !cell.v) return "";
+    if (cell.f) return cell.f;
+    if (cell.v instanceof Date) return cell.v.toLocaleDateString("id-ID");
+    if (cell.v && cell.v.match && cell.v.match(/^Date\(/)) {
+      const parts = cell.v.match(/Date\((\d+),(\d+),(\d+)\)/);
+      if (parts) {
+        const year = parseInt(parts[1]);
+        const month = parseInt(parts[2]);
+        const day = parseInt(parts[3]);
+        const date = new Date(year, month, day);
+        return date.toLocaleDateString("id-ID", { day: "2-digit", month: "short", year: "numeric" });
+      }
+    }
+    return cell.v;
+  }
+
+  function renderFilms(films) {
+    const filmGrid = document.getElementById("film-grid");
+    filmGrid.innerHTML = "";
+
+    if (films.length === 0) {
+      filmGrid.innerHTML = `<p class="text-center col-span-full text-gray-400">Film tidak ditemukan.</p>`;
+      return;
+    }
+
+    films.forEach(film => {
+      const hasTrailer = film.trailer && film.trailer !== "#";
+      const hasWatch = film.watch && film.watch !== "#";
+      const noLinks = !hasTrailer && !hasWatch; // dua-duanya kosong
+
+      let trailerBtnHTML = "";
+      let watchBtnHTML = "";
+
+      if (noLinks) {
+        trailerBtnHTML = `<button class="mt-2 px-6 py-2 bg-gray-600 cursor-not-allowed rounded-full font-semibold text-white" disabled>
+                            Watch Trailer
+                          </button>`;
+        watchBtnHTML = `<button class="mt-4 px-6 py-2 bg-gray-600 cursor-not-allowed rounded-full font-semibold text-white" disabled>
+                          Coming Soon
+                        </button>`;
+      } else {
+        // tombol trailer
+        if (hasTrailer) {
+          trailerBtnHTML = `<a href="${film.trailer}" target="_blank">
+                              <button class="mt-2 px-6 py-2 bg-blue-600 hover:bg-blue-700 rounded-full font-semibold text-white">
+                                Watch Trailer
+                              </button>
+                            </a>`;
+        } else {
+          trailerBtnHTML = `<button class="mt-2 px-6 py-2 bg-gray-600 cursor-not-allowed rounded-full font-semibold text-white" disabled>
+                              Watch Trailer
+                            </button>`;
+        }
+
+        // tombol watch
+        if (hasWatch && film.status === "released") {
+          watchBtnHTML = `<a href="${film.watch}" target="_blank">
+                            <button class="mt-4 px-6 py-2 bg-red-600 hover:bg-red-700 rounded-full font-semibold text-white">
+                              Watch Now
+                            </button>
+                          </a>`;
+        } else {
+          watchBtnHTML = `<button class="mt-4 px-6 py-2 bg-gray-600 cursor-not-allowed rounded-full font-semibold text-white" disabled>
+                            Coming Soon
+                          </button>`;
+        }
+      }
+
+      const cardHTML = `
+        <div class="relative group overflow-hidden rounded-2xl shadow-lg aspect-[4/5]">
+          <img src="${film.poster}" alt="${film.title}"
+               class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" 
+               onerror="this.src='https://via.placeholder.com/300x400?text=Poster+Tidak+Tersedia'" />
+          <div class="absolute inset-0 bg-black/70 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition duration-500 text-center px-4">
+            <h3 class="text-2xl font-bold mb-2">${film.title}</h3>
+            <p class="text-sm mb-2">${film.desc}</p>
+            <p class="text-xs text-gray-300">Release Date: ${film.releaseDateStr}</p>
+            ${trailerBtnHTML}
+            ${watchBtnHTML}
+          </div>
+        </div>
+      `;
+      filmGrid.innerHTML += cardHTML;
+    });
+  }
+
+  fetch(sheetURL)
+  .then(res => res.text())
+  .then(data => {
+    const json = JSON.parse(data.substr(47).slice(0, -2));
+    const rows = json.table.rows;
+
+    allFilms = rows.map(row => {
+      const title = row.c[0]?.v || "";
+      let poster = row.c[1]?.v || "";
+      poster = toRawGithub(poster);
+      const trailer = row.c[2]?.v || "#";
+      const watch = row.c[3]?.v || "#";
+      const status = (row.c[4]?.v || "").toLowerCase();
+      const desc = row.c[5]?.v || "";
+      const releaseDateRaw = row.c[6];
+      const releaseDateStr = formatDate(releaseDateRaw);
+
+      let releaseDateObj = new Date();
+      if (releaseDateRaw && releaseDateRaw.v && releaseDateRaw.v.match(/^Date\(/)) {
+        const parts = releaseDateRaw.v.match(/Date\((\d+),(\d+),(\d+)\)/);
+        if (parts) {
+          releaseDateObj = new Date(parseInt(parts[1]), parseInt(parts[2]), parseInt(parts[3]));
+        }
+      }
+
+      return {
+        title,
+        poster,
+        trailer,
+        watch,
+        status,
+        desc,
+        releaseDateStr,
+        releaseDateObj
+      };
+    });
+
+    allFilms.sort((a, b) => b.releaseDateObj - a.releaseDateObj);
+    renderFilms(allFilms);
+  })
+  .catch(err => {
+    console.error("Error fetching sheet:", err);
+    const filmGrid = document.getElementById("film-grid");
+    filmGrid.innerHTML = `<p class="text-center col-span-full text-red-400">Gagal memuat data film. Silakan refresh halaman.</p>`;
+  });
+
+  document.getElementById("search-bar").addEventListener("input", e => {
+    const query = e.target.value.toLowerCase();
+    const filtered = allFilms.filter(film =>
+      film.title.toLowerCase().includes(query) ||
+      film.desc.toLowerCase().includes(query)
+    );
+    renderFilms(filtered);
+  });
+</script>
+
+</body>
+</html>

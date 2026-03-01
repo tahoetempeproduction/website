@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tahoe Tempe Production</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <style>
+      * {
+        scroll-behavior: smooth;
+      }
+
+      /* Transisi warna dan underline untuk link */
+      .nav-link {
+        position: relative;
+        transition: color 0.3s;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        width: 0%;
+        height: 2px;
+        background-color: #facc15; /* warna underline, kuning cerah */
+        transition: width 0.3s;
+      }
+
+      .nav-link.active {
+        color: #facc15; /* link aktif kuning */
+        font-weight: 600;
+      }
+
+      .nav-link.active::after {
+        width: 100%;
+      }
+
+        /* Loading Screen Styles */
+  #loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+  }
+
+  #loading-screen.fade-out {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .loading-logo {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 2rem;
+    animation: pulse 2s infinite;
+  }
+
+  .loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #333;
+    border-top: 4px solid #facc15;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  .loading-text {
+    margin-top: 1rem;
+    color: #facc15;
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+    </style>
+  </head>
+  <body class="bg-black text-white font-sans">
+    <nav
+      id="navbar"
+      class="fixed w-full z-50 backdrop-blur-md bg-gray-900/80 shadow-md transition-all duration-300 opacity-100"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <!-- Logo -->
+          <div class="flex-shrink-0">
+            <a href="#" class="text-white text-lg font-bold"
+              >Tahoe Tempe Production</a
+            >
+          </div>
+
+          <!-- Menu desktop -->
+          <div class="hidden md:flex space-x-4">
+            <a
+              href="#about"
+              class="nav-link text-gray-300 px-3 py-2 rounded-md text-sm font-medium"
+              >About</a
+            >
+            <a
+              href="#Portfolio"
+              class="nav-link text-gray-300 px-3 py-2 rounded-md text-sm font-medium"
+              >Portfolio</a
+            >
+            <a
+              href="#contact"
+              class="nav-link text-gray-300 px-3 py-2 rounded-md text-sm font-medium"
+              >Contact</a
+            >
+          </div>
+
+          <!-- Hamburger button mobile -->
+          <div class="md:hidden">
+            <button
+              id="menu-button"
+              class="text-white hover:text-gray-300 focus:outline-none flex flex-col justify-center items-center gap-1"
+            >
+              <span
+                class="block w-6 h-0.5 bg-current transition-all duration-300"
+              ></span>
+              <span
+                class="block w-6 h-0.5 bg-current transition-all duration-300"
+              ></span>
+              <span
+                class="block w-6 h-0.5 bg-current transition-all duration-300"
+              ></span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menu mobile -->
+      <div
+        id="mobile-menu"
+        class="md:hidden flex flex-col px-2 py-2 space-y-1 bg-gray-900/90 backdrop-blur-md opacity-0 max-h-0 overflow-y-auto transition-all duration-300"
+      >
+        <a
+          href="#about"
+          class="nav-link block text-gray-300 px-3 py-2 rounded-md text-base font-medium"
+          >About</a
+        >
+        <a
+          href="#Portfolio"
+          class="nav-link block text-gray-300 px-3 py-2 rounded-md text-base font-medium"
+          >Portfolio</a
+        >
+        <a
+          href="#contact"
+          class="nav-link block text-gray-300 px-3 py-2 rounded-md text-base font-medium"
+          >Contact</a
+        >
+      </div>
+    </nav>
+
+    <!-- Loading Screen -->
+<div id="loading-screen">
+  <img 
+    src="./asset/Logo Tahoe Tempe.png" 
+    alt="Tahoe Tempe Production" 
+    class="loading-logo"
+    onerror="this.src='https://via.placeholder.com/120x120?text=LOGO'"
+  >
+  <div class="loading-spinner"></div>
+  <div class="loading-text">Loading...</div>
+</div>
+
+    <!-- Hero Carousel -->
+    <section class="relative h-screen">
+      <div class="swiper h-full">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide relative">
+            <video
+              class="w-full h-full object-cover"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            >
+              <source src="./asset/Isolated Trailer.mp4" type="video/mp4" />
+              Browser kamu tidak mendukung video.
+            </video>
+            <!-- Overlay -->
+            <div
+              class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-center px-4"
+            >
+              <h1 class="text-4xl md:text-6xl font-bold">
+                Tahoe Tempe Production
+              </h1>
+              <p class="mt-4 text-lg md:text-xl text-gray-200">
+                Telling Stories Beyond the Frame
+              </p>
+              <a href="#Portfolio">
+                <button
+                  class="mt-6 px-6 py-3 bg-red-600 hover:bg-red-700 rounded-full text-white font-semibold"
+                >
+                  Our Movie
+                </button>
+              </a>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="swiper-slide relative">
+            <video
+              class="w-full h-full object-cover"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            >
+              <source src="./asset/Scene 4.mp4" type="video/mp4" />
+              Browser kamu tidak mendukung video.
+            </video>
+            <!-- Overlay -->
+            <div
+              class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-center px-4"
+            >
+              <h1 class="text-4xl md:text-6xl font-bold">Watch Our Story</h1>
+              <p class="mt-4 text-lg md:text-xl text-gray-200">
+                Cinematic Journey Begins Here
+              </p>
+              <a href="#Portfolio">
+                <button
+                  class="mt-6 px-6 py-3 bg-red-600 hover:bg-red-700 rounded-full text-white font-semibold"
+                >
+                  Our Movie
+                </button>
+              </a>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="swiper-slide relative">
+            <video
+              class="w-full h-full object-cover"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            >
+              <source src="./asset/Untitled 2.mp4" type="video/mp4" />
+              Browser kamu tidak mendukung video.
+            </video>
+            <!-- Overlay -->
+            <div
+              class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-center px-4"
+            >
+              <h1 class="text-4xl md:text-6xl font-bold">Independent Spirit</h1>
+              <p class="mt-4 text-lg md:text-xl text-gray-200">
+                Menceritakan Suara Generasi
+              </p>
+              <a href="#Portfolio">
+                <button
+                  class="mt-6 px-6 py-3 bg-red-600 hover:bg-red-700 rounded-full text-white font-semibold"
+                >
+                  Our Movie
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- Navigation -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section
+      id="about"
+      class="bg-black text-white py-20 px-6 md:px-16 lg:px-32"
+    >
+      <div class="max-w-5xl mx-auto text-center">
+        <!-- Tagline -->
+        <h2 class="text-4xl md:text-5xl font-bold mb-6">
+          Tahoe Tempe Production
+        </h2>
+        <p class="text-lg md:text-xl text-gray-300 leading-relaxed">
+          Tahoe Tempe Production adalah rumah produksi independen yang berfokus
+          pada karya sinematik dengan jiwa narasi. Kami percaya setiap cerita
+          punya suara yang layak didengar, dan melalui film, kami
+          menghadirkannya ke layar dengan penuh jiwa.
+        </p>
+      </div>
+
+      <!-- Deskripsi -->
+      <div class="max-w-4xl mx-auto mt-12 text-center">
+        <p class="text-gray-400 text-base md:text-lg leading-relaxed">
+          Didirikan pada
+          <span class="font-semibold text-white">30 Oktober 2022</span> oleh
+          <span class="font-semibold text-white"
+            >Nicole Valeria Andin, Michael Satria Nugroho, dan Jonathan Eric
+            Handoko</span
+          >, Tahoe Tempe Production lahir dari semangat bercerita melalui film
+          pendek. Proyek perdana kami adalah
+          <span class="italic">"Devian: Isolated"</span>, yang menjadi titik
+          awal perjalanan kami dalam dunia sinema. Hingga kini, kami terus
+          berkarya dengan satu prinsip utama:
+          <span class="font-semibold text-white"
+            >semua proyek kami dituturkan dalam bahasa Indonesia, untuk penonton
+            Indonesia.</span
+          >
+        </p>
+      </div>
+
+      <!-- Timeline -->
+      <div class="mt-16 max-w-3xl mx-auto">
+        <h3 class="text-2xl font-semibold mb-8 text-center">Our Journey</h3>
+        <div class="relative border-l-2 border-red-600">
+          <!-- Timeline Item 1 -->
+          <div class="mb-10 ml-6">
+            <div
+              class="absolute w-4 h-4 bg-red-600 rounded-full -left-2.5"
+            ></div>
+            <h4 class="text-xl font-semibold">2022</h4>
+            <p class="text-gray-400">
+              Tahoe Tempe Production resmi didirikan pada 30 Oktober.
+            </p>
+          </div>
+
+          <!-- Timeline Item 2 -->
+          <div class="mb-10 ml-6">
+            <div
+              class="absolute w-4 h-4 bg-red-600 rounded-full -left-2.5"
+            ></div>
+            <h4 class="text-xl font-semibold">2022</h4>
+            <p class="text-gray-400">
+              Proyek perdana: <span class="italic">Devian: Isolated</span>.
+            </p>
+          </div>
+
+          <div class="mb-10 ml-6">
+            <div
+              class="absolute w-4 h-4 bg-red-600 rounded-full -left-2.5"
+            ></div>
+            <h4 class="text-xl font-semibold">2024</h4>
+            <p class="text-gray-400">Samudera Waktu</p>
+          </div>
+
+          <div class="mb-10 ml-6">
+            <div
+              class="absolute w-4 h-4 bg-red-600 rounded-full -left-2.5"
+            ></div>
+            <h4 class="text-xl font-semibold">2025</h4>
+            <p class="text-gray-400">Lintasan Harapan</p>
+          </div>
+
+          <!-- Timeline Item 3 -->
+          <div class="mb-10 ml-6">
+            <div
+              class="absolute w-4 h-4 bg-red-600 rounded-full -left-2.5"
+            ></div>
+            <h4 class="text-xl font-semibold">2025 - Now</h4>
+            <p class="text-gray-400">
+              Terus berkarya melalui film pendek dan proyek kreatif lainnya
+              dengan semangat independen.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Film Portfolio Section -->
+    <section id="Portfolio" class="py-20 bg-gray-900 px-6">
+      <h2 class="text-3xl md:text-5xl font-bold text-center mb-12">
+        Karya Terbaru Kami
+      </h2>
+      <div
+        id="film-grid"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+      >
+        <!-- data akan di-inject -->
+      </div>
+      <div class="flex justify-center mt-6">
+        <a
+          class="text-red-600 hover:text-red-500 font-semibold"
+          href="./all_film.html"
+          >Selengkapnya</a
+        >
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-black px-6">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-5xl font-bold mb-6">Hubungi Kami</h2>
+        <p class="text-gray-300 text-lg mb-12">
+          Punya pertanyaan atau ingin berkolaborasi? Jangan ragu untuk
+          menghubungi kami.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Informasi Kontak</h3>
+            <div class="space-y-3">
+              <p class="flex items-center">
+                <span class="text-red-600 mr-2">✉️</span>
+                <a
+                  href="mailto:tahoetempeproduction@gmail.com"
+                  class="hover:text-red-600 transition-colors"
+                  >tahoetempeproduction@gmail.com</a
+                >
+              </p>
+              <p class="flex items-center">
+                <span class="text-red-600 mr-2">📱</span>
+                <a
+                  href="tel:+6281234567890"
+                  class="hover:text-red-600 transition-colors"
+                  >+62 812 3456 7890</a
+                >
+              </p>
+              <p class="flex items-center">
+                <span class="text-red-600 mr-2">📷</span>
+                <a
+                  href="https://instagram.com/tahoetempeproduction"
+                  target="_blank"
+                  class="hover:text-red-600 transition-colors"
+                  >@tahoetempeproduction</a
+                >
+              </p>
+            </div>
+
+            <!-- Info Google Sheet -->
+            <div class="mt-8 p-4 bg-gray-800 rounded-lg">
+              <h4 class="font-semibold mb-2">📊 Data Tersimpan Aman</h4>
+              <p class="text-sm text-gray-300">
+                Pesan Anda akan otomatis tersimpan di database kami dan kami
+                akan mendapat notifikasi email.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Kirim Pesan</h3>
+
+            <form id="contact-form" class="space-y-4">
+              <div>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Nama Lengkap"
+                  class="w-full px-4 py-2 bg-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 text-white placeholder-gray-400"
+                  required
+                />
+                <div
+                  id="name-error"
+                  class="text-red-500 text-sm mt-1 hidden"
+                ></div>
+              </div>
+
+              <div>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="alamat@email.com"
+                  class="w-full px-4 py-2 bg-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 text-white placeholder-gray-400"
+                  required
+                />
+                <div
+                  id="email-error"
+                  class="text-red-500 text-sm mt-1 hidden"
+                ></div>
+              </div>
+
+              <div>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Tulis pesan Anda di sini..."
+                  rows="4"
+                  class="w-full px-4 py-2 bg-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 text-white placeholder-gray-400"
+                  required
+                ></textarea>
+                <div
+                  id="message-error"
+                  class="text-red-500 text-sm mt-1 hidden"
+                ></div>
+              </div>
+
+              <button
+                type="submit"
+                id="submit-btn"
+                class="w-full px-6 py-3 bg-red-600 hover:bg-red-700 rounded-full text-white font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <span id="submit-text">📨 Kirim Pesan</span>
+                <div id="loading-spinner" class="hidden">
+                  <svg
+                    class="animate-spin h-5 w-5 text-white mx-auto"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      class="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      stroke-width="4"
+                    ></circle>
+                    <path
+                      class="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
+                  </svg>
+                </div>
+              </button>
+            </form>
+
+            <!-- Status Messages -->
+            <div
+              id="success-message"
+              class="hidden mt-4 p-4 bg-green-600 text-white rounded-md"
+            >
+              <div class="flex items-center">
+                <span class="text-lg mr-2">✅</span>
+                <span id="success-text"
+                  >Pesan berhasil dikirim! Data telah tersimpan dan kami akan
+                  membalas segera.</span
+                >
+              </div>
+            </div>
+
+            <div
+              id="error-message"
+              class="hidden mt-4 p-4 bg-red-600 text-white rounded-md"
+            >
+              <div class="flex items-center">
+                <span class="text-lg mr-2">❌</span>
+                <span id="error-text"
+                  >Terjadi kesalahan. Silakan coba lagi atau hubungi kami
+                  langsung.</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-10">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 items-center"
+      >
+        <!-- Logo & About -->
+        <div class="flex flex-col items-start">
+          <a href="#" class="flex items-center mb-4">
+            <img
+              src="./asset/Logo Tahoe Tempe.png"
+              alt="Tahoe Tempe Production"
+              class="w-12 h-12 mr-3"
+            />
+            <span class="text-white text-xl font-bold"
+              >Tahoe Tempe Production</span
+            >
+          </a>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Rumah produksi independen yang berfokus pada karya sinematik dengan
+            jiwa narasi. Menceritakan cerita yang layak didengar dan dirasakan.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-white text-lg font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li>
+              <a href="#about" class="hover:text-red-600 transition-colors"
+                >About</a
+              >
+            </li>
+            <li>
+              <a href="#Portfolio" class="hover:text-red-600 transition-colors"
+                >Portfolio</a
+              >
+            </li>
+            <li>
+              <a href="#contact" class="hover:text-red-600 transition-colors"
+                >Contact</a
+              >
+            </li>
+            <li>
+              <a
+                href="./all_film.html"
+                class="hover:text-red-600 transition-colors"
+                >All Films</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="text-white text-lg font-semibold mb-4">Contact</h4>
+          <p class="text-gray-400 text-sm">
+            Email:
+            <a
+              href="mailto:tahoetempeproduction@gmail.com"
+              class="hover:text-red-600"
+              >tahoetempeproduction@gmail.com</a
+            >
+          </p>
+          <p class="text-gray-400 text-sm">
+            Instagram:
+            <a
+              href="https://instagram.com/tahoetempeproduction"
+              target="_blank"
+              class="hover:text-red-600"
+              >@tahoetempeproduction</a
+            >
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-10 text-center text-gray-500 text-xs">
+        &copy; 2025 Tahoe Tempe Production. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- Main Script -->
+    <script src="script.js"></script>
+    <script>
+      const scriptURL = "https://script.google.com/macros/s/AKfycbwFr0u_VQbfZeDVwVEms6w4E_P26oXEelVe5b7nG7oSpY34uz0e522_Iu8IqfhYS0m-/exec";
+
+      const form = document.getElementById("contact-form");
+      const submitBtn = document.getElementById("submit-btn");
+      const submitText = document.getElementById("submit-text");
+      const loadingSpinner = document.getElementById("loading-spinner");
+      const successMessage = document.getElementById("success-message");
+      const errorMessage = document.getElementById("error-message");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        // Reset messages
+        successMessage.classList.add("hidden");
+        errorMessage.classList.add("hidden");
+
+        // Loading state
+        submitBtn.disabled = true;
+        submitText.classList.add("hidden");
+        loadingSpinner.classList.remove("hidden");
+
+        const formData = new FormData(form);
+
+        try {
+          const response = await fetch(scriptURL, {
+            method: "POST",
+            body: formData
+          });
+
+          const result = await response.json();
+
+          if (result.result === "success") {
+            successMessage.classList.remove("hidden");
+            form.reset();
+          } else {
+            throw new Error("Submission failed");
+          }
+
+        } catch (error) {
+          errorMessage.classList.remove("hidden");
+        }
+
+        // Reset button state
+        submitBtn.disabled = false;
+        submitText.classList.remove("hidden");
+        loadingSpinner.classList.add("hidden");
+      });
+      </script>
+  </body>
+</html>
