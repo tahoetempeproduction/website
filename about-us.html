@@ -1,0 +1,582 @@
+<!doctype html>
+
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Tahoe Tempe Production</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+      rel="shortcut icon"
+      href="./asset/favicon (1).ico"
+      type="image/x-icon"
+    />
+
+    <style>
+      body {
+        background: #000;
+        color: #fff;
+        font-family: sans-serif;
+      }
+
+      /* loading */
+
+      #loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition:
+          opacity 0.5s,
+          visibility 0.5s;
+      }
+
+      #loading-screen.fade-out {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .loading-spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid #333;
+        border-top: 4px solid #facc15;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Loading Screen -->
+
+    <div id="loading-screen">
+      <img src="./asset/Logo Tahoe Tempe.png" class="w-24 mb-6" />
+
+      <div class="loading-spinner"></div>
+
+      <p class="mt-4 text-yellow-400">Loading...</p>
+    </div>
+
+    <!-- NAVBAR -->
+
+    <nav class="bg-gray-900/80 backdrop-blur-md py-4 px-6 sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <a href="index.html" class="flex items-center space-x-3">
+          <img src="./asset/Logo Tahoe Tempe.png" class="w-10" />
+
+          <span class="text-xl font-bold">Tahoe Tempe Production</span>
+        </a>
+
+        <a
+          href="index.html"
+          class="bg-red-600 hover:bg-red-700 px-6 py-2 rounded-full font-semibold"
+        >
+          ← Kembali ke Home
+        </a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+
+    <section class="py-24 text-center px-6">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6">Tentang Kami</h1>
+
+      <p class="max-w-3xl mx-auto text-gray-400 text-lg leading-relaxed">
+        Tahoe Tempe Production adalah rumah produksi independen yang berfokus
+        pada pembuatan film pendek, karya sinematik, dan eksplorasi cerita yang
+        dekat dengan kehidupan. Kami percaya bahwa setiap cerita memiliki
+        kekuatan untuk menyentuh banyak orang.
+      </p>
+    </section>
+
+    <!-- OUR STORY -->
+
+    <section class="py-20 px-6">
+      <div class="max-w-5xl mx-auto text-center">
+        <h2 class="text-4xl font-bold mb-10">Our Story</h2>
+
+        <p class="text-gray-400 text-lg leading-relaxed mb-6">
+          Didirikan pada 30 Oktober 2022 oleh Nicole Valeria Andin, Michael
+          Satria Nugroho, dan Jonathan Eric Handoko, Tahoe Tempe Production
+          lahir dari semangat bercerita melalui film pendek dan sekumpulan orang
+          muda yang memiliki ketertarikan besar terhadap dunia film dan
+          sinematografi. Dengan peralatan sederhana dan semangat eksperimen yang
+          tinggi, kami mulai membuat karya pertama kami sebagai bentuk
+          eksplorasi kreativitas.
+        </p>
+
+        <p class="text-gray-400 text-lg leading-relaxed mb-6">
+          Seiring berjalannya waktu, proyek-proyek kecil tersebut berkembang
+          menjadi produksi yang lebih serius. Kami mencoba berbagai pendekatan
+          visual, teknik storytelling, dan kolaborasi kreatif untuk menghasilkan
+          film yang tidak hanya menarik secara visual tetapi juga memiliki makna
+          yang kuat.
+        </p>
+
+        <p class="text-gray-400 text-lg leading-relaxed">
+          Bagi kami, film adalah medium untuk menyampaikan emosi, menggambarkan
+          realitas, dan menghubungkan pengalaman manusia melalui cerita yang
+          universal.
+        </p>
+      </div>
+    </section>
+
+    <!-- VISION MISSION -->
+
+    <section class="py-20 bg-gray-900 px-6">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
+        <div>
+          <h2 class="text-3xl font-bold mb-6 text-yellow-400">Visi</h2>
+
+          <p class="text-gray-300 leading-relaxed">
+            Menjadi rumah produksi independen yang mampu menghadirkan karya
+            sinematik yang kuat secara visual dan emosional serta mampu
+            menginspirasi banyak orang melalui cerita.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-3xl font-bold mb-6 text-yellow-400">Misi</h2>
+
+          <ul class="text-gray-300 space-y-3">
+            <li>• Mengembangkan cerita yang autentik dan relatable.</li>
+
+            <li>• Memberikan ruang bagi kreator muda untuk berkarya.</li>
+
+            <li>• Menghasilkan film pendek dengan kualitas visual kuat.</li>
+
+            <li>• Membangun komunitas kreatif di dunia film.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CREW -->
+
+    <section class="py-24 px-6">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-20">Our Crew</h2>
+
+      <div class="max-w-6xl mx-auto space-y-20">
+        <!-- DIRECTORS -->
+
+        <div>
+          <h3 class="text-2xl font-semibold mb-10 text-yellow-400">
+            Directors
+          </h3>
+
+          <div
+            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10"
+          >
+            <!-- member -->
+
+            <div
+              class="text-center group bg-gray-900/40 p-6 rounded-xl hover:shadow-[0_0_25px_rgba(250,204,21,0.4)] transition"
+            >
+              <img
+                src="./asset/people/Michael.png"
+                class="w-32 h-32 mx-auto rounded-full object-cover mb-4 grayscale group-hover:grayscale-0 transform group-hover:scale-110 transition duration-300"
+              />
+
+              <h4 class="font-semibold">Michael Satria Nugroho</h4>
+              <p class="text-sm text-gray-400">Director</p>
+            </div>
+
+            <div
+              class="text-center group bg-gray-900/40 p-6 rounded-xl hover:shadow-[0_0_25px_rgba(250,204,21,0.4)] transition"
+            >
+              <img
+                src="./asset/people/Gaby.png"
+                class="w-32 h-32 mx-auto rounded-full object-cover mb-4 grayscale group-hover:grayscale-0 transform group-hover:scale-110 transition duration-300"
+              />
+
+              <h4 class="font-semibold">Gabrielle Jordaniella Yulius</h4>
+              <p class="text-sm text-gray-400">Director</p>
+            </div>
+
+            <div
+              class="text-center group bg-gray-900/40 p-6 rounded-xl hover:shadow-[0_0_25px_rgba(250,204,21,0.4)] transition"
+            >
+              <img
+                src="./asset/people/Nicole.jpg"
+                class="w-32 h-32 mx-auto rounded-full object-cover mb-4 grayscale group-hover:grayscale-0 transform group-hover:scale-110 transition duration-300"
+              />
+
+              <h4 class="font-semibold">Nicole Valeria Andin</h4>
+              <p class="text-sm text-gray-400">Director (2022-2023)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CINEMATOGRAPHY -->
+
+        <div>
+          <h3 class="text-2xl font-semibold mb-10 text-yellow-400">
+            Cinematography
+          </h3>
+
+          <div
+            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10"
+          >
+            <div
+              class="text-center group bg-gray-900/40 p-6 rounded-xl hover:shadow-[0_0_25px_rgba(250,204,21,0.4)] transition"
+            >
+              <img
+                src="./asset/people/Jojo.png"
+                class="w-32 h-32 mx-auto rounded-full object-cover mb-4 grayscale group-hover:grayscale-0 transform group-hover:scale-110 transition"
+              />
+
+              <h4 class="font-semibold">Jonathan Eric Handoko</h4>
+              <p class="text-sm text-gray-400">Cinematographer (2022-2023)</p>
+            </div>
+
+            <div
+              class="text-center group bg-gray-900/40 p-6 rounded-xl hover:shadow-[0_0_25px_rgba(250,204,21,0.4)] transition"
+            >
+              <img
+                src="./asset/people/Michael.png"
+                class="w-32 h-32 mx-auto rounded-full object-cover mb-4 grayscale group-hover:grayscale-0 transform group-hover:scale-110 transition"
+              />
+
+              <h4 class="font-semibold">Michael Satria Nugroho</h4>
+              <p class="text-sm text-gray-400">Cinematographer</p>
+            </div>
+
+            <div
+              class="text-center group bg-gray-900/40 p-6 rounded-xl hover:shadow-[0_0_25px_rgba(250,204,21,0.4)] transition"
+            >
+              <img
+                src="./asset/people/Djuan.png"
+                class="w-32 h-32 mx-auto rounded-full object-cover mb-4 grayscale group-hover:grayscale-0 transform group-hover:scale-110 transition"
+              />
+
+              <h4 class="font-semibold">Djuan William Houten</h4>
+              <p class="text-sm text-gray-400">Cinematographer</p>
+            </div>
+
+            <div
+              class="text-center group bg-gray-900/40 p-6 rounded-xl hover:shadow-[0_0_25px_rgba(250,204,21,0.4)] transition"
+            >
+              <img
+                src="https://via.placeholder.com/200"
+                class="w-32 h-32 mx-auto rounded-full object-cover mb-4 grayscale group-hover:grayscale-0 transform group-hover:scale-110 transition"
+              />
+
+              <h4 class="font-semibold">Erasmus Hansel Timothy</h4>
+              <p class="text-sm text-gray-400">Cinematographer</p>
+            </div>
+
+            <div
+              class="text-center group bg-gray-900/40 p-6 rounded-xl hover:shadow-[0_0_25px_rgba(250,204,21,0.4)] transition"
+            >
+              <img
+                src="./asset/people/Gea.png"
+                class="w-32 h-32 mx-auto rounded-full object-cover mb-4 grayscale group-hover:grayscale-0 transform group-hover:scale-110 transition"
+              />
+
+              <h4 class="font-semibold">Yanthalia Giacinta Reyanta</h4>
+              <p class="text-sm text-gray-400">Cinematographer</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- POST PRODUCTION -->
+
+        <div>
+          <h3 class="text-2xl font-semibold mb-10 text-yellow-400">
+            Post Production
+          </h3>
+
+          <div
+            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10"
+          >
+            <div
+              class="text-center group bg-gray-900/40 p-6 rounded-xl hover:shadow-[0_0_25px_rgba(250,204,21,0.4)] transition"
+            >
+              <img
+                src="./asset/people/Michael.png"
+                class="w-32 h-32 mx-auto rounded-full object-cover mb-4 grayscale group-hover:grayscale-0 transform group-hover:scale-110 transition"
+              />
+
+              <h4 class="font-semibold">Michael Satria Nugroho</h4>
+              <p class="text-sm text-gray-400">Editor</p>
+            </div>
+
+            <div
+              class="text-center group bg-gray-900/40 p-6 rounded-xl hover:shadow-[0_0_25px_rgba(250,204,21,0.4)] transition"
+            >
+              <img
+                src="./asset/people/Evanda.png"
+                class="w-32 h-32 mx-auto rounded-full object-cover mb-4 grayscale group-hover:grayscale-0 transform group-hover:scale-110 transition"
+              />
+
+              <h4 class="font-semibold">Evanda Richi Manuel</h4>
+              <p class="text-sm text-gray-400">Editor</p>
+            </div>
+
+            <div
+              class="text-center group bg-gray-900/40 p-6 rounded-xl hover:shadow-[0_0_25px_rgba(250,204,21,0.4)] transition"
+            >
+              <img
+                src="./asset/people/Gaby.png"
+                class="w-32 h-32 mx-auto rounded-full object-cover mb-4 grayscale group-hover:grayscale-0 transform group-hover:scale-110 transition"
+              />
+
+              <h4 class="font-semibold">Gabrielle Jordaniela Yulius</h4>
+              <p class="text-sm text-gray-400">Animator</p>
+            </div>
+
+            <div
+              class="text-center group bg-gray-900/40 p-6 rounded-xl hover:shadow-[0_0_25px_rgba(250,204,21,0.4)] transition"
+            >
+              <img
+                src="https://via.placeholder.com/200"
+                class="w-32 h-32 mx-auto rounded-full object-cover mb-4 grayscale group-hover:grayscale-0 transform group-hover:scale-110 transition"
+              />
+
+              <h4 class="font-semibold">Jonas Alphian Gunarso</h4>
+              <p class="text-sm text-gray-400">Music Creator</p>
+            </div>
+
+            <div
+              class="text-center group bg-gray-900/40 p-6 rounded-xl hover:shadow-[0_0_25px_rgba(250,204,21,0.4)] transition"
+            >
+              <img
+                src="https://via.placeholder.com/200"
+                class="w-32 h-32 mx-auto rounded-full object-cover mb-4 grayscale group-hover:grayscale-0 transform group-hover:scale-110 transition"
+              />
+
+              <h4 class="font-semibold">Gregorius Tan Sidharta</h4>
+              <p class="text-sm text-gray-400">Music Creator</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRODUCTION TEAM -->
+
+        <div>
+          <h3 class="text-2xl font-semibold mb-10 text-yellow-400">
+            Production Team
+          </h3>
+
+          <div
+            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10"
+          >
+            <div
+              class="text-center group bg-gray-900/40 p-6 rounded-xl hover:shadow-[0_0_25px_rgba(250,204,21,0.4)] transition"
+            >
+              <img
+                src="./asset/people/Michael.png"
+                class="w-32 h-32 mx-auto rounded-full object-cover mb-4 grayscale group-hover:grayscale-0 transform group-hover:scale-110 transition"
+              />
+
+              <h4 class="font-semibold">Michael Satria Nugroho</h4>
+              <p class="text-sm text-gray-400">Producer</p>
+            </div>
+
+            <div
+              class="text-center group bg-gray-900/40 p-6 rounded-xl hover:shadow-[0_0_25px_rgba(250,204,21,0.4)] transition"
+            >
+              <img
+                src="./asset/people/SEAN.png"
+                class="w-32 h-32 mx-auto rounded-full object-cover mb-4 grayscale group-hover:grayscale-0 transform group-hover:scale-110 transition"
+              />
+
+              <h4 class="font-semibold">Sean Natanael Peter Tilaar</h4>
+              <p class="text-sm text-gray-400">Assistant Director</p>
+            </div>
+
+            <div
+              class="text-center group bg-gray-900/40 p-6 rounded-xl hover:shadow-[0_0_25px_rgba(250,204,21,0.4)] transition"
+            >
+              <img
+                src="./asset/people/George.png"
+                class="w-32 h-32 mx-auto rounded-full object-cover mb-4 grayscale group-hover:grayscale-0 transform group-hover:scale-110 transition"
+              />
+
+              <h4 class="font-semibold">George Kurniawan</h4>
+              <p class="text-sm text-gray-400">Logistic</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+
+    <section class="py-20 bg-gray-900 px-6">
+      <h2 class="text-4xl font-bold text-center mb-14">Prestasi Kami</h2>
+
+      <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+        <!-- Achievement 1 -->
+        <div
+          class="bg-black border border-gray-800 rounded-xl p-8 text-center hover:border-yellow-400 transition"
+        >
+          <div class="text-4xl mb-4">🏆</div>
+
+          <h3 class="text-xl font-semibold mb-2">
+            Juara 1 Short Movie (JEJAK BUDAYA)
+          </h3>
+
+          <p class="text-gray-400 text-sm mb-2">Marsud Fest:WASTRA</p>
+
+          <p class="text-gray-500 text-xs">2025</p>
+        </div>
+
+        <!-- Achievement 2 -->
+        <div
+          class="bg-black border border-gray-800 rounded-xl p-8 text-center hover:border-yellow-400 transition"
+        >
+          <div class="text-4xl mb-4">🎬</div>
+
+          <h3 class="text-xl font-semibold mb-2">
+            Juara 3 Short Movie (LINTASAN HARAPAN)
+          </h3>
+
+          <p class="text-gray-400 text-sm mb-2">
+            Amarante 2025 SMAK 7 PENABUR JAKARTA
+          </p>
+
+          <p class="text-gray-500 text-xs">2025</p>
+        </div>
+
+        <!-- Achievement 3 -->
+        <div
+          class="bg-black border border-gray-800 rounded-xl p-8 text-center hover:border-yellow-400 transition"
+        >
+          <div class="text-4xl mb-4">⭐</div>
+
+          <h3 class="text-xl font-semibold mb-2">
+            Juara 2 Short Movie (Isolated)
+          </h3>
+
+          <p class="text-gray-400 text-sm mb-2">Marsud Fest:Urozion</p>
+
+          <p class="text-gray-500 text-xs">2023</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer class="bg-gray-900 text-gray-300 py-10">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 items-center"
+      >
+        <!-- Logo & About -->
+        <div class="flex flex-col items-start">
+          <a href="#" class="flex items-center mb-4">
+            <img
+              src="./asset/Logo Tahoe Tempe.png"
+              alt="Tahoe Tempe Production"
+              class="w-12 h-12 mr-3"
+            />
+            <span class="text-white text-xl font-bold"
+              >Tahoe Tempe Production</span
+            >
+          </a>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Rumah produksi independen yang berfokus pada karya sinematik dengan
+            jiwa narasi. Menceritakan cerita yang layak didengar dan dirasakan.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-white text-lg font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li>
+              <a
+                href="./index.html#about"
+                class="hover:text-red-600 transition-colors"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="./index.html#Portfolio"
+                class="hover:text-red-600 transition-colors"
+                >Portfolio</a
+              >
+            </li>
+            <li>
+              <a
+                href="./index.html#contact"
+                class="hover:text-red-600 transition-colors"
+                >Contact</a
+              >
+            </li>
+            <li>
+              <a
+                href="./all_film.html"
+                class="hover:text-red-600 transition-colors"
+                >All Films</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://discord.gg/66TsXxwBvQ"
+                target="_blank"
+                class="hover:text-red-600 transition-colors"
+                >Discord Server</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="text-white text-lg font-semibold mb-4">Contact</h4>
+          <p class="text-gray-400 text-sm">
+            Email:
+            <a
+              href="mailto:tahoetempeproduction@gmail.com"
+              class="hover:text-red-600"
+              >tahoetempeproduction@gmail.com</a
+            >
+          </p>
+          <p class="text-gray-400 text-sm">
+            Instagram:
+            <a
+              href="https://instagram.com/tahoetempeproduction"
+              target="_blank"
+              class="hover:text-red-600"
+              >@tahoetempeproduction</a
+            >
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-10 text-center text-gray-500 text-xs">
+        &copy; 2025 Tahoe Tempe Production. All rights reserved.
+      </div>
+    </footer>
+
+    <script>
+      const loadingScreen = document.getElementById("loading-screen");
+
+      window.addEventListener("load", () => {
+        setTimeout(() => {
+          loadingScreen.classList.add("fade-out");
+
+          setTimeout(() => loadingScreen.remove(), 500);
+        }, 800);
+      });
+    </script>
+  </body>
+</html>
